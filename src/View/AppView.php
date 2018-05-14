@@ -25,6 +25,8 @@ use Cake\View\View;
 class AppView extends View
 {
 
+    public $title = SITE_NAME;
+
     /**
      * Initialization hook method.
      *
@@ -36,5 +38,20 @@ class AppView extends View
      */
     public function initialize()
     {
+    }
+
+    /**
+     * 设置页面标题
+     *
+     * @param null $title
+     * @return string
+     */
+    public function title($title = null)
+    {
+        if (is_null($title)) {
+            return $this->title;
+        }
+
+        $this->title = $title.'|'.SITE_NAME;
     }
 }

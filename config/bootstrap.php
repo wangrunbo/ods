@@ -17,6 +17,8 @@
  * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . '/paths.php';
+require __DIR__ . '/const.php';
+require __DIR__ . '/util.php';
 
 /*
  * Bootstrap CakePHP.
