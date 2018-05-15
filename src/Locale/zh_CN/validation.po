@@ -1,0 +1,14 @@
+msgid "Please enter your name!"
+msgstr "请输入姓名！"
+
+msgid "Name is far too long!"
+msgstr "姓名过长！"
+
+msgid "Name format invalid!"
+msgstr "姓名格式错误！"
+
+msgid "Please enter your phone number!"
+msgstr "请输入联系电话！"
+
+msgid "Tel format invalid!"
+msgstr "电话号码格式错误！"

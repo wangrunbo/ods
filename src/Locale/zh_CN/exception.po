@@ -1,0 +1,2 @@
+msgid "Fail to save applicant information!"
+msgstr "申请者信息保存失败！"

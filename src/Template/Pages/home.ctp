@@ -27,6 +27,10 @@ if (!Configure::read('debug')) :
     );
 endif;
 
+Configure::write('App.imageBaseUrl', 'cake/img/');
+Configure::write('App.cssBaseUrl', 'cake/css/');
+Configure::write('App.jsBaseUrl', 'cake/js/');
+
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
