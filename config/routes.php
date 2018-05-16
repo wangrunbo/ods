@@ -52,17 +52,24 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-//    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     if (\Cake\Core\Configure::read('debug')) {
         $routes->connect('/page', ['controller' => 'Pages', 'action' => 'display', 'home']);
     }
 
     $routes->connect('/', ['controller' => 'Index', 'action' => 'index']);
 
+    $routes->connect('/'.env('ADMIN_PAGE_URL', ADMIN_PAGE_URL), ['controller' => 'Admin', 'action' => 'index']);
+    $routes->connect('/'.env('ADMIN_PAGE_URL', ADMIN_PAGE_URL).'/:action/*', ['controller' => 'Admin']);
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-//    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->connect('/pages/*', ['controller' => 'Error', 'action' => 'error404']);
+
+    /**
+     * Disable routes
+     */
+    $routes->connect('/admin/*', ['controller' => 'Error', 'action' => 'error404']);
 
     /**
      * Connect catchall routes for all controllers.

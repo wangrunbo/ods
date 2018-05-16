@@ -69,6 +69,7 @@ return [
      */
     'Security' => [
         'salt' => env('SECURITY_SALT', 'b73dfbdbdea5740b1e7b9a61e576a7c036ca38f749bf48ac97a7476c32bc9fc6'),
+        'cookieKey' => env('COOKIE_KEY', 'Zr4u7x!A%D*G-KaPdRgUkXp2s5v8y/B?E(H+MbQeThVmYq3t6w9z$C&F)J@NcRfU'),
     ],
 
     /**

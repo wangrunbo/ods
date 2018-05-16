@@ -65,6 +65,6 @@ class ApplyController extends AppController
 
     public function complete()
     {
-
+//        $this->set(null);
     }
 }

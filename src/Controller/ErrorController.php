@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Event\Event;
+use Cake\Http\Exception\NotFoundException;
 
 /**
  * Error Handling Controller
@@ -27,6 +28,7 @@ class ErrorController extends AppController
      * Initialization hook method.
      *
      * @return void
+     * @throws \Exception
      */
     public function initialize()
     {
@@ -64,5 +66,15 @@ class ErrorController extends AppController
      */
     public function afterFilter(Event $event)
     {
+    }
+
+    /**
+     * 404 Exception
+     *
+     * @throws NotFoundException
+     */
+    public function error404()
+    {
+        throw new NotFoundException();
     }
 }
