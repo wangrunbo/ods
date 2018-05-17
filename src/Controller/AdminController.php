@@ -4,9 +4,7 @@ namespace App\Controller;
 use Cake\Event\Event;
 use Cake\Http\Cookie\Cookie;
 use Cake\Http\Response;
-use Cake\Http\ServerRequest;
 use Cake\I18n\Time;
-use Cake\Routing\Router;
 
 /**
  * Class AdminController
@@ -50,7 +48,8 @@ class AdminController extends AppController
         $allowed = ['auth'];
 
         if ($this->_authCookie->getValue() !== $this->_authCode && !in_array($this->request->getParam('action'), $allowed)) {
-            return $this->redirect(['action' => 'auth', 'redirect' => urlencode(Router::reverse($this->request))]);
+            $rdct = $this->request->is('get') ? $this->request->getRequestTarget() : $this->request->referer(true);
+            return $this->redirect(['action' => 'auth', 'rdct' => urlencode($rdct)]);
         }
 
         return parent::beforeFilter($event);
@@ -80,7 +79,7 @@ class AdminController extends AppController
         if ($this->request->is('post')) {
             $auth_code = $this->request->getData('auth_code');
 
-            $redirect = $this->request->getQuery('redirect');
+            $redirect = $this->request->getQuery('rdct');
 
             if ($auth_code === $this->_authCode) {
                 $this->_authCookie = $this->_authCookie->withValue($auth_code);
@@ -93,7 +92,7 @@ class AdminController extends AppController
                     'error' => true
                 ]);
 
-                $redirect_to = is_null($redirect) ? ['action' => 'auth'] : ['action' => 'auth', 'redirect' => $redirect];
+                $redirect_to = is_null($redirect) ? ['action' => 'auth'] : ['action' => 'auth', 'rdct' => $redirect];
             }
 
             $this->response = $this->response->withCookie($this->_authCookie);
