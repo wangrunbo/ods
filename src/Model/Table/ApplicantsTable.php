@@ -116,8 +116,6 @@ class ApplicantsTable extends Table
     {
         $query = $this->find();
 
-        $search['name'] = 'wang run bo';
-
         if ($this->hasSearch('name', $search)) {
             $query->andWhere($this->andLike('name', $search['name']));
         }
