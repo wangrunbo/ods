@@ -71,7 +71,7 @@ class AdminController extends AppController
 
     public function index()
     {
-        $Applicants = $this->Applicants->find()->orderDesc('created');
+        $Applicants = $this->Applicants->findAllBySearch($this->request->getQuery());
     }
 
     public function auth()

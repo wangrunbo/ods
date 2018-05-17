@@ -21,6 +21,7 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  * @mixin \App\Model\Behavior\ValidatorBehavior
+ * @mixin \App\Model\Behavior\SearchBehavior
  */
 class ApplicantsTable extends Table
 {
@@ -40,6 +41,7 @@ class ApplicantsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Validator');
+        $this->addBehavior('Search');
         $this->addBehavior('Timestamp');
     }
 
@@ -104,5 +106,15 @@ class ApplicantsTable extends Table
         ;
 
         return $validator;
+    }
+
+    /**
+     * @param array $search
+     */
+    public function findAllBySearch($search)
+    {
+        $conditions = [];
+
+        dump($this->format('2018/02/12 10:29:09', 'datetime'));exit;
     }
 }
