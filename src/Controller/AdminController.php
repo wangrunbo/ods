@@ -72,9 +72,6 @@ class AdminController extends AppController
     public function index()
     {
         $Applicants = $this->Applicants->findAllBySearch($this->request->getQuery());
-
-        dump((string)1.5);
-        exit;
     }
 
     public function auth()

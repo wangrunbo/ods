@@ -2,8 +2,10 @@
 
 namespace App\Model\Behavior;
 
+use Cake\Database\Expression\QueryExpression;
 use Cake\I18n\Time;
 use Cake\ORM\Behavior;
+use Cake\ORM\Query;
 
 class SearchBehavior extends Behavior
 {
@@ -59,22 +61,49 @@ class SearchBehavior extends Behavior
     /**
      * @param string $column
      * @param string|array $value
+     * @return \Closure
      */
     public function andLike($column, $value)
     {
+        $value = $this->_searchStringToArray($value);
 
+        return function (QueryExpression $exp) use ($column, $value) {
+            foreach ($value as $like) {
+                $exp->like($column, "%{$like}%");
+            }
+
+            return $exp;
+        };
     }
 
     public function orLike($column, $value)
     {
+        $value = $this->_searchStringToArray($value);
 
+        return function (QueryExpression $exp, Query $q) use ($column, $value) {
+            $or = [];
+
+            foreach ($value as $like) {
+                $or[] = $q->newExpr()->like($column, "%{$like}%");
+            }
+
+            return $exp->or_($or);
+        };
     }
 
     /**
-     * @param string $sting
+     * @param string $string
+     * @return array|string
      */
-    protected function _searchStringToArray($sting)
+    protected function _searchStringToArray($string)
     {
-        
+        if (!is_string($string)) {
+            return $string;
+        }
+
+        $string = preg_replace('/^[ 　]+|[ 　]$/', '', $string);
+        $string = preg_replace('/[ 　]+/', ' ', $string);
+
+        return explode(' ', $string);
     }
 }

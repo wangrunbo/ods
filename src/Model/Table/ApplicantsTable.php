@@ -116,9 +116,21 @@ class ApplicantsTable extends Table
     {
         $query = $this->find();
 
+        $search['name'] = 'wang run bo';
+
         if ($this->hasSearch('name', $search)) {
-            $query->andWhere($this->like('name', $search['name']));
+            $query->andWhere($this->andLike('name', $search['name']));
         }
+
+        if ($this->hasSearch('tel', $search)) {
+            $query->andWhere($this->andLike('tel', $search['tel']));
+        }
+
+        if ($this->hasSearch('note', $search)) {
+            $query->andWhere($this->andLike('note', $search['note']));
+        }
+
+        $query->orderDesc('created');
 
         return $query;
     }
