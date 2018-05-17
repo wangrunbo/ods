@@ -14,6 +14,26 @@ class SearchBehavior extends Behavior
     }
 
     /**
+     * @param string $name
+     * @param array $search
+     * @return bool
+     */
+    public function hasSearch($name, array $search)
+    {
+        if (!array_key_exists($name, $search)) {
+            return false;
+        }
+
+        $value = $search[$name];
+
+        if (is_integer($value) || is_float($value)) {
+            $value = (string)$value;
+        }
+
+        return !empty($value) || $value === '0';
+    }
+
+    /**
      * @param mixed $value
      * @param string $type
      * @return mixed
@@ -36,8 +56,25 @@ class SearchBehavior extends Behavior
         return $value;
     }
 
-    public function like($string)
+    /**
+     * @param string $column
+     * @param string|array $value
+     */
+    public function andLike($column, $value)
     {
-        dump(gettype($string));exit;
+
+    }
+
+    public function orLike($column, $value)
+    {
+
+    }
+
+    /**
+     * @param string $sting
+     */
+    protected function _searchStringToArray($sting)
+    {
+        
     }
 }

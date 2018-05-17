@@ -110,11 +110,16 @@ class ApplicantsTable extends Table
 
     /**
      * @param array $search
+     * @return Query
      */
     public function findAllBySearch($search)
     {
-        $conditions = [];
+        $query = $this->find();
 
-        dump($this->format('2018/02/12 10:29:09', 'datetime'));exit;
+        if ($this->hasSearch('name', $search)) {
+            $query->andWhere($this->like('name', $search['name']));
+        }
+
+        return $query;
     }
 }
