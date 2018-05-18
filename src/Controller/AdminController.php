@@ -60,6 +60,8 @@ class AdminController extends AppController
 
     public function beforeRender(Event $event)
     {
+        $this->viewBuilder()->setLayout('admin');
+
         $this->response = $this->response->withCookie($this->_authCookie);
 
         return parent::beforeRender($event);
