@@ -43,15 +43,10 @@ class AppView extends View
     /**
      * 设置页面标题
      *
-     * @param null $title
-     * @return string
+     * @param string $title
      */
-    public function title($title = null)
+    public function setTitle($title)
     {
-        if (is_null($title)) {
-            return $this->title;
-        }
-
-        $this->title = $title.'|'.SITE_NAME;
+        $this->title = $title.' | '.SITE_NAME;
     }
 }

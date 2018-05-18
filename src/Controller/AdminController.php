@@ -3,6 +3,7 @@
 namespace App\Controller;
 use Cake\Event\Event;
 use Cake\Http\Cookie\Cookie;
+use Cake\Http\Exception\InternalErrorException;
 use Cake\Http\Response;
 use Cake\I18n\Time;
 
@@ -33,6 +34,8 @@ class AdminController extends AppController
         parent::initialize();
 
         $this->loadModel('Applicants');
+
+        $this->loadComponent('Data');
 
         $this->_authCode = env('ADMIN_AUTH_CODE', ADMIN_AUTH_CODE);
         $this->_authCookie = new Cookie(
@@ -69,9 +72,51 @@ class AdminController extends AppController
         return parent::beforeRedirect($event, $url, $response);
     }
 
+    /**
+     * 后台管理首页
+     *
+     * @throws \Exception
+     */
     public function index()
     {
         $Applicants = $this->Applicants->findAllBySearch($this->request->getQuery());
+
+        $applicants = $this->_paginate($Applicants)->toArray();
+
+        $this->set(compact('applicants'));
+    }
+
+    /**
+     * @param int $id
+     * @return Response
+     * @throws \Aura\Intl\Exception
+     */
+    public function edit($id = null)
+    {
+        $this->request->allowMethod('post');
+
+        $keys = ['name', 'tel', 'note'];
+
+        $data = [];
+        foreach ($keys as $key) {
+            if (array_key_exists($key, $this->request->getData())) {
+                $data[$key] = $this->request->getData($key);
+            }
+        }
+
+        $applicant = $this->Applicants->get($id);
+
+        $validator = $this->Data->validate($data, $applicant);
+
+        if (empty($validator['errors'])) {
+            $applicant = $this->Applicants->save($applicant);
+
+            if ($applicant === false) {
+                throw new InternalErrorException(__d('exception', 'Fail to save applicant information!'));
+            }
+        }
+
+        return $this->response->withStringBody(json_encode($validator));
     }
 
     public function auth()
@@ -112,6 +157,10 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     * @return Response|null
+     * @deprecated
+     */
     public function clear()
     {
         $this->request->allowMethod('post');

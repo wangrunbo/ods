@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\ORM\Query;
 
 /**
  * Application Controller
@@ -48,5 +49,23 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Security');
         $this->loadComponent('Csrf');
+    }
+
+    /**
+     * @param Query $query
+     * @return \Cake\Datasource\ResultSetInterface|\Cake\ORM\ResultSet
+     * @throws \Exception
+     */
+    protected function _paginate(Query $query)
+    {
+        $limit = $this->request->getQuery('limit');
+
+        if (in_array($limit, DATA_PER_PAGE)) {
+            $limit = (int)$limit;
+        } else {
+            $limit = DATA_PER_PAGE[0];
+        }
+
+        return parent::paginate($query, ['limit' => $limit]);
     }
 }

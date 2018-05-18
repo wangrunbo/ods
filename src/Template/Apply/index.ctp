@@ -4,6 +4,7 @@
  * @var array $errors
  * @var array $default
  */
+$this->setTitle('报名');
 $this->Html->script('Apply/index.js', ['block' => true]);
 ?>
 <div>

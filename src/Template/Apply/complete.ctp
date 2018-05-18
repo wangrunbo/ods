@@ -2,7 +2,8 @@
 /**
  * @var \App\View\AppView $this
  */
+$this->setTitle('报名成功');
 ?>
 <div>
-    信息录入完成！
+    报名成功！
 </div>

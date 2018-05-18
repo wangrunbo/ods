@@ -36,7 +36,7 @@ class ApplyController extends AppController
 
             $applicant = $this->Applicants->newEntity();
 
-            $validator = $this->Data->validate($data, $applicant, null, ['correct' => true]);
+            $validator = $this->Data->validate($data, $applicant);
 
             if ($this->request->is('ajax')) {
                 return $this->response->withStringBody(json_encode($validator));

@@ -21,7 +21,7 @@ class DataComponent extends Component
     {
         $options += [
             'validate' => true,
-            'correct' => false,
+            'correct' => true,
         ];
 
         TableRegistry::getTableLocator()->get((string)$entity->getSource())->patchEntity($entity, $data, ['validate' => $options['validate']]);
@@ -30,9 +30,17 @@ class DataComponent extends Component
             $callback();
         }
 
+        if ($options['correct']) {
+            foreach (array_keys($data) as $key) {
+                if ($entity->has($key) && empty($entity->getError($key))) {
+                    $data[$key] = $entity->get($key);
+                }
+            }
+        }
+
         return [
             'errors' => $entity->getErrors(),
-            'default' => $options['correct'] ? array_merge($data, $entity->toArray()) : $data
+            'default' => $data
         ];
     }
 }

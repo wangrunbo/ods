@@ -13,6 +13,7 @@
 
     <title><?= $this->title ?></title>
 
+    <?= $this->Html->css('lib/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css') ?>
     <?= $this->Html->css('style.css') ?>
 
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
