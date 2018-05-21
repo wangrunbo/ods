@@ -7,6 +7,7 @@ $page = $this->Paginator->param('page');
 $limit = $this->Paginator->param('perPage');
 
 $count = ($page - 1) * $limit;
+$search = $this->request->getQuery('tel');
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -28,7 +29,7 @@ $count = ($page - 1) * $limit;
             </ul>
 
             <form id="form-search" class="navbar-form navbar-right" method="get" action="<?= $this->Url->build(); ?>">
-                <input type="text" name="tel" placeholder="电话查找">
+                <input type="text" name="tel"<?php if (!is_null($search)): ?> value="<?= $search ?>"<?php endif; ?> placeholder="电话查找">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
