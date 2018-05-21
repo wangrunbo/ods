@@ -161,7 +161,6 @@ class AdminController extends AppController
 
     /**
      * @return Response|null
-     * @deprecated
      */
     public function clear()
     {
