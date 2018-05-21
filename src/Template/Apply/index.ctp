@@ -1,8 +1,6 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var array $errors
- * @var array $default
  */
 $this->setTitle('报名');
 $this->setScriptVars('apply_complete_template', $this->element('apply_complete'), ['is_html' => true]);
@@ -71,16 +69,10 @@ $this->Html->script('Apply/index.js', ['block' => true]);
     <div class="alert alert-success" role="alert">
         <?= $this->Form->create(null, ['id' => 'form-apply', 'class' => ['form-signin']]) ?>
             <label class="sr-only">姓名</label>
-            <?= $this->Form->text('name', ['value' => $default['name'] ?? '', 'class' => ['form-control'], 'placeholder' => '姓名']) ?>
-            <?php if (isset($errors['name'])): ?>
-                <?= $this->element('validation', ['field' => 'name', 'error' => $errors['name']]) ?>
-            <?php endif; ?>
+            <?= $this->Form->text('name', ['class' => ['form-control'], 'placeholder' => '姓名']) ?>
             <br/>
             <label class="sr-only">联系电话</label>
-            <?= $this->Form->text('tel', ['value' => $default['tel'] ?? '', 'class' => ['form-control'], 'placeholder' => '联系电话']) ?>
-            <?php if (isset($errors['name'])): ?>
-                <?= $this->element('validation', ['field' => 'tel', 'error' => $errors['tel']]) ?>
-            <?php endif; ?>
+            <?= $this->Form->text('tel', ['class' => ['form-control'], 'placeholder' => '联系电话']) ?>
             <br/>
             <button class="btn btn-lg btn-primary btn-block" type="submit">立即预约招生说明会</button>
         <?= $this->Form->end(); ?><!-- /联系我们 -->

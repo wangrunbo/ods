@@ -42,3 +42,12 @@ th {
     display: inline-block;
 }
 /* @end admin.index */
+
+/* @validation-error */
+.validation-error {
+    font-size: 13px;
+    color: #ff0000;
+    padding-top: 2px;
+    margin: 0;
+}
+/* @end validation-error */
