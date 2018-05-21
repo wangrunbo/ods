@@ -148,3 +148,39 @@ table tr:nth-child(2n) {
     margin: 0;
 }
 /* @end validation-error */
+
+/* @pagination */
+.pagination {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pagination ul {
+    display: flex;
+    justify-content: center;
+    list-style:none;
+}
+
+.pagination ul li {
+    margin: 5px;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #fff;
+}
+
+.pagination .active a {
+    background-color: #ddd;
+    color: #333;
+    pointer-events: none;
+}
+/* @end pagination */

@@ -3,7 +3,10 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Applicant[] $applicants
  */
-$count = 0;
+$page = $this->Paginator->param('page');
+$limit = $this->Paginator->param('perPage');
+
+$count = ($page - 1) * $limit;
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -45,7 +48,7 @@ $count = 0;
                 <table id="list-apply" class="table table-striped">
                     <thead>
                     <tr>
-                        <th class="count">编号</th>
+                        <th class="count"></th>
                         <th class="name">姓名</th>
                         <th class="tel">联系电话</th>
                         <th class="created">报名时间</th>
@@ -64,16 +67,16 @@ $count = 0;
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
 
-        <div class="pagenation">
-            <ul>
-                <?= $this->Paginator->numbers([
-                    'before' => $this->Paginator->hasPrev() ? $this->Paginator->prev('<') : '',
-                    'after' => $this->Paginator->hasNext() ? $this->Paginator->next('>') : ''
-                ])?>
-            </ul>
+                <div class="pagination">
+                    <ul>
+                        <?= $this->Paginator->numbers([
+                            'before' => $this->Paginator->hasPrev() ? $this->Paginator->prev('<') : '',
+                            'after' => $this->Paginator->hasNext() ? $this->Paginator->next('>') : ''
+                        ])?>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
