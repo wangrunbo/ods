@@ -22,6 +22,8 @@ class CreateApplicantTable extends AbstractMigration
             ->addColumn('created', 'timestamp', ['null' => false, 'default' => 'CURRENT_TIMESTAMP', 'comment' => '生成时间'])
             ->addColumn('updated', 'timestamp', ['null' => false, 'default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP', 'comment' => '修改时间'])
 
+            ->addIndex(['tel'], ['unique' => true])
+
             ->create();
     }
 }

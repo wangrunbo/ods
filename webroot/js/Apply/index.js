@@ -14,7 +14,7 @@ function initApplyForm() {
             context: this
         }).done(function (res) {
             if ($.isEmptyObject(res.errors)) {
-                $(this).unbind('submit').submit();
+                $(this).parent().html(apply_complete_template);
             } else {
                 set_validation_errors(this, res.errors);
                 refresh_form_values(this, res.default);

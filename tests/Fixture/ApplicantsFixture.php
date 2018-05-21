@@ -25,6 +25,7 @@ class ApplicantsFixture extends TestFixture
         'updated' => ['type' => 'timestamp', 'length' => null, 'null' => false, 'default' => 'CURRENT_TIMESTAMP', 'comment' => '修改时间', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'tel' => ['type' => 'unique', 'columns' => ['tel'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,8 +47,8 @@ class ApplicantsFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'tel' => 'Lorem ips',
                 'note' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => 1526344138,
-                'updated' => 1526344138
+                'created' => 1526878584,
+                'updated' => 1526878584
             ],
         ];
         parent::init();

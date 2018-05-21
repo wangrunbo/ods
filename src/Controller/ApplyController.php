@@ -38,33 +38,19 @@ class ApplyController extends AppController
 
             $validator = $this->Data->validate($data, $applicant);
 
-            if ($this->request->is('ajax')) {
-                return $this->response->withStringBody(json_encode($validator));
-            }
-
             if (empty($validator['errors'])) {
                 $applicant = $this->Applicants->save($applicant);
 
                 if ($applicant === false) {
                     throw new InternalErrorException(__d('exception', 'Fail to save applicant information!'));
                 }
-
-                return $this->redirect(['action' => 'complete']);
-
-            } else {
-                $this->request->getSession()->write(SESSION_FORM_APPLY, $validator);
-
-                return $this->redirect(['action' => 'index']);
             }
-        }
 
-        if ($this->request->getSession()->check(SESSION_FORM_APPLY)) {
-            $this->set($this->request->getSession()->consume(SESSION_FORM_APPLY));
-        }
-    }
+            if (isset($validator['errors']['tel']) && array_keys($validator['errors']['tel']) === ['unique']) {
+                unset($validator['errors']['tel']);
+            }
 
-    public function complete()
-    {
-//        $this->set(null);
+            return $this->response->withStringBody(json_encode($validator));
+        }
     }
 }

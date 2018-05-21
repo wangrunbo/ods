@@ -62,11 +62,31 @@ class ApplicantsTableTest extends TestCase
     }
 
     /**
+     * Test beforeMarshal method
+     *
+     * @return void
+     */
+    public function testBeforeMarshal()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test validationDefault method
      *
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test findAllBySearch method
+     *
+     * @return void
+     */
+    public function testFindAllBySearch()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

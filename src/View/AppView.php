@@ -27,6 +27,8 @@ class AppView extends View
 
     public $title = SITE_NAME;
 
+    protected $scriptVars = null;
+
     /**
      * Initialization hook method.
      *
@@ -48,5 +50,35 @@ class AppView extends View
     public function setTitle($title)
     {
         $this->title = $title.' | '.SITE_NAME;
+    }
+
+    public function setScriptVars($name, $value = null, array $options = [])
+    {
+        $options += [
+            'is_html' => false,
+            'is_string' => true
+        ];
+
+        if (is_null($value)) {
+            $var = "let {$name};";
+        } else {
+            if ($options['is_html']) {
+                $value = str_replace(PHP_EOL, '', $value);
+            }
+
+            if ($options['is_string'] || is_string($value)) {
+                $value = '\''.$value.'\'';
+            }
+
+            $var = "let {$name} = {$value};";
+        }
+
+        if (!is_null($this->scriptVars)) {
+            $this->scriptVars = $var;
+        } else {
+            $this->scriptVars .= PHP_EOL.$var;
+        }
+
+        $this->Html->scriptBlock($this->scriptVars, ['block' => 'vars']);
     }
 }
