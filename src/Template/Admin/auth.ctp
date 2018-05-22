@@ -23,7 +23,7 @@
         <br/>
         <?= $this->Form->create(null, ['autocomplete' => 'off']) ?>
             <label class="sr-only">认证码</label>
-            <?= $this->Form->text('auth_code', ['value' => $default['auth_code'] ?? '', 'class' => ['form-control'], 'placeholder' => '认证码']) ?>
+            <?= $this->Form->password('auth_code', ['value' => $default['auth_code'] ?? '', 'class' => ['form-control'], 'placeholder' => '认证码']) ?>
             <?php if (isset($error) && $error): ?>
                 <div id="error-auth">
                     <p class="validation-error">验证失败，请重新输入</p>
