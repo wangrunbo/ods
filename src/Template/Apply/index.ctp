@@ -2,17 +2,17 @@
 /**
  * @var \App\View\AppView $this
  */
-$this->setTitle('报名');
+$this->setTitle('考试报名');
 $this->setScriptVars('apply_complete_template', $this->element('apply_complete'), ['is_html' => true]);
 $this->Html->script('Apply/index.js', ['block' => true]);
 ?>
 <div>
-    <h3 class="text-muted">法国留学桥说明会邀请函</h3>
+    <h3 class="text-muted">法国留学桥招生说明会及入学考试邀请函</h3>
 </div>
 
 <div class="jumbotron">
     <div>
-        <?= $this->Html->image('fr-1.png', ['width' => '100%']) ?>
+        <?= $this->Html->image('main.png', ['width' => '100%']) ?>
     </div>
     <h2></h2>
     <div class="panel panel-success">
@@ -26,9 +26,15 @@ $this->Html->script('Apply/index.js', ['block' => true]);
                     <td></td>
                 </tr>
                 <tr>
-                    <td><p style="font-size:14px;">▷ 法国巴黎七大本科预备课程</p></td>
-                    <td>招生对象：一本分数线以上，英语成绩优异，需通过我校英语笔试和口试</td>
+                    <td><p style="font-size:14px;">▷ 法国巴黎七大本科预备课程</p>
+                        <p style="font-size:14px;">▷ 法国工程师学校本科预备课程</p>
+                    <td><p style="font-size:14px;">招生对象：一本分数线以上，英语成绩优异，需通过我校英语笔试和口试</p>
+                    <p style="font-size:14px;">招生对象：一本分数线以上，英语成绩优异，需通过我校英语笔试和口试</p></td>
                 </tr>
+
+
+
+
                 <tr>
                     <td><strong><span style="font-size:16px;">一年预备课程</span></strong></td>
                     <td></td>
@@ -36,9 +42,10 @@ $this->Html->script('Apply/index.js', ['block' => true]);
                 <tr>
                     <td>
                         <p style="font-size:14px;">▷ 法国公立大学、高等商学院本科预备课程</p>
-                        <p style="font-size:14px;">▷ 本科预备课程法国艺术院校本科预备课程</p>
-                        <p style="font-size:14px;">▷ 法国工程师学校本科预备课程</p></td>
-                    <td style="text-align:left;vertical-align:middle;">招生对象：有高考成绩，需通过我校英语笔试和面试</td>
+                        <p style="font-size:14px;">▷ 法国艺术院校本科预备课程</p>
+                        </td>
+                    <td><p style="font-size:14px;">招生对象：有高考成绩，需通过我校英语笔试和面试</p>
+                    <p style="font-size:14px;">招生对象：有高考成绩，需通过我校英语笔试和面试</p></td>
                 </tr>
                 </tbody>
             </table>
@@ -46,15 +53,19 @@ $this->Html->script('Apply/index.js', ['block' => true]);
     </div>
 </div>
 <div id="signin">
-    <h3 class="form-signin-heading">预约说明会</h3>
+    <h3 class="form-signin-heading">在线预约（全国招生名额30人）</h3>
     <div>
         <table class="table">
 
             <tbody>
             <tr>
-                <td width="30%">报名地址</td>
-                <td>上海交通大学长宁校区（长宁区法华镇路535号）主楼5楼523室</td>
+                <td width="30%">考试时间</td>
+                <td>2018年6月23日 24日 &nbsp 上午10:00-12:00 &nbsp 下午14:00-17:00</td>
             </tr>
+                            <tr>
+                                <td width="30%">报名地址</td>
+                                <td>上海交通大学长宁校区（长宁区法华镇路535号）主楼5楼523室</td>
+                            </tr>
             <tr>
                 <td>咨询电话</td>
                 <td>021-61530708 &nbsp 18621709317</td>
@@ -138,26 +149,26 @@ $this->Html->script('Apply/index.js', ['block' => true]);
 </div>
 <div class="jumbotron">
     <div>
-        <img src="http://liuxue.sjtu.edu.cn/upload/201712/22/201712220951248830.jpg" width="100%">
+        <img src="/webroot/img/fr1.png" width="100%">
     </div>
-    <h4>开学典礼</h4>
+    <h4>往届风采</h4>
     <br/>
 
     <div>
         <img src="http://liuxue.sjtu.edu.cn/upload/201707/18/201707181148449976.jpg" width="100%">
     </div>
-    <h4>留学桥全球留学展</h4>
+    <h4>欧洲留学展</h4>
     <br/>
     <div>
-        <img src="http://liuxue.sjtu.edu.cn/upload/201711/10/201711101413590221.jpg" width="100%">
+        <img src="/webroot/img/fr2.png" width="100%">
     </div>
-    <h4>英语能力大赛</h4>
+    <h4>校园生活</h4>
     <br/>
 
     <div>
-        <img src="http://liuxue.sjtu.edu.cn/upload/201703/21/201703211504594664.jpg" width="100%">
+        <img src="/webroot/img/fr3.png" width="100%">
     </div>
-    <h4>校园篮球赛</h4>
+    <h4>课堂剪影</h4>
     <br/>
 
     <div>
@@ -165,4 +176,3 @@ $this->Html->script('Apply/index.js', ['block' => true]);
     </div>
     <h4>毕业典礼</h4>
 </div>
-

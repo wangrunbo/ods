@@ -14,6 +14,9 @@ use Cake\Http\Exception\InternalErrorException;
 class ApplyController extends AppController
 {
 
+    /**
+     * @throws \Exception
+     */
     public function initialize()
     {
         $this->loadModel('Applicants');
@@ -49,6 +52,9 @@ class ApplyController extends AppController
             if (isset($validator['errors']['tel']) && array_keys($validator['errors']['tel']) === ['unique']) {
                 unset($validator['errors']['tel']);
             }
+
+            // TODO ajax cross domain
+            $this->response = $this->response->withHeader('Access-Control-Allow-Origin', '*');
 
             return $this->response->withStringBody(json_encode($validator));
         }
