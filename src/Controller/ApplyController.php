@@ -34,7 +34,10 @@ class ApplyController extends AppController
         if ($this->request->is('post')) {
             $data = [
                 'name' => $this->request->getData('name'),
-                'tel' => $this->request->getData('tel')
+                'tel' => $this->request->getData('tel'),
+                'id_num' => $this->request->getData('id_num'),
+                'achievement' => $this->request->getData('achievement'),
+                'en_achievement' => $this->request->getData('en_achievement')
             ];
 
             $applicant = $this->Applicants->newEntity();

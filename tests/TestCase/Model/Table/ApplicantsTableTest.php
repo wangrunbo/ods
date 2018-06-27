@@ -82,6 +82,16 @@ class ApplicantsTableTest extends TestCase
     }
 
     /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test findAllBySearch method
      *
      * @return void

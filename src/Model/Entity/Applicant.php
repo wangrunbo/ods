@@ -9,6 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $tel
+ * @property string $id_num
+ * @property float $achievement
+ * @property float $en_achievement
  * @property string $note
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $updated
@@ -28,6 +31,9 @@ class Applicant extends Entity
     protected $_accessible = [
         'name' => true,
         'tel' => true,
+        'id_num' => true,
+        'achievement' => true,
+        'en_achievement' => true,
         'note' => true,
         'created' => true,
         'updated' => true

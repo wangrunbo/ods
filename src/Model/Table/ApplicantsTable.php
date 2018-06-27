@@ -64,6 +64,14 @@ class ApplicantsTable extends Table
             // 短横杠、空格删除
             $data['tel'] = preg_replace('/[-\s]/', '', $data['tel']);
         }
+
+        // 身份证号
+        if (array_key_exists('id_num', $data)) {
+            // 全角数字转半角
+            $data['id_num'] = mb_convert_kana($data['id_num'], "n");
+            // 短横杠、空格删除
+            $data['id_num'] = preg_replace('/[-\s]/', '', $data['tel']);
+        }
     }
 
     /**
@@ -103,6 +111,42 @@ class ApplicantsTable extends Table
                 'provider' => 'table',
                 'last' => true,
                 'message' => __d($this->getLocale(), 'Tel format invalid!')
+            ])
+        ;
+
+        $validator
+            ->scalar('id_num')
+            ->requirePresence('id_num', 'create', __d($this->getLocale(), 'Please enter your id number!'))
+            ->notEmpty('id_num', __d($this->getLocale(), 'Please enter your id number!'))
+            ->add('id_num', 'format', [
+                'rule' => 'id_num',
+                'provider' => 'table',
+                'last' => true,
+                'message' => __d($this->getLocale(), 'Please enter the correct id number!')
+            ])
+        ;
+
+        $validator
+            ->numeric('achievement')
+            ->requirePresence('achievement', 'create', __d($this->getLocale(), 'Please enter your achievement!'))
+            ->notEmpty('achievement', __d($this->getLocale(), 'Please enter your achievement!'))
+            ->add('achievement', 'format', [
+                'rule' => 'achievement',
+                'provider' => 'table',
+                'last' => true,
+                'message' => __d($this->getLocale(), 'Please enter the correct achievement!')
+            ])
+        ;
+
+        $validator
+            ->numeric('en_achievement')
+            ->requirePresence('en_achievement', 'create', __d($this->getLocale(), 'Please enter your English achievement!'))
+            ->notEmpty('en_achievement', __d($this->getLocale(), 'Please enter your English achievement!'))
+            ->add('en_achievement', 'format', [
+                'rule' => 'achievement',
+                'provider' => 'table',
+                'last' => true,
+                'message' => __d($this->getLocale(), 'Please enter the correct English achievement!')
             ])
         ;
 

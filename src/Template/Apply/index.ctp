@@ -87,6 +87,15 @@ $this->Html->script('Apply/index.js', ['block' => true]);
         <label class="sr-only">联系电话</label>
         <?= $this->Form->text('tel', ['class' => ['form-control'], 'placeholder' => '联系电话']) ?>
         <br/>
+        <label class="sr-only">身份证号</label>
+        <?= $this->Form->text('id_num', ['class' => ['form-control'], 'placeholder' => '身份证号']) ?>
+        <br/>
+        <label class="sr-only">高考成绩</label>
+        <?= $this->Form->text('achievement', ['class' => ['form-control'], 'placeholder' => '高考成绩']) ?>
+        <br/>
+        <label class="sr-only">高考英语成绩</label>
+        <?= $this->Form->text('en_achievement', ['class' => ['form-control'], 'placeholder' => '高考英语成绩']) ?>
+        <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">立即预约招生说明会</button>
     <?= $this->Form->end(); ?>
 </div>
@@ -149,7 +158,7 @@ $this->Html->script('Apply/index.js', ['block' => true]);
 </div>
 <div class="jumbotron">
     <div>
-        <img src="/webroot/img/fr1.png" width="100%">
+        <?= $this->Html->image('fr1.png', ['width' => '100%']) ?>
     </div>
     <h4>往届风采</h4>
     <br/>
@@ -160,13 +169,13 @@ $this->Html->script('Apply/index.js', ['block' => true]);
     <h4>欧洲留学展</h4>
     <br/>
     <div>
-        <img src="/webroot/img/fr2.png" width="100%">
+        <?= $this->Html->image('fr2.png', ['width' => '100%']) ?>
     </div>
     <h4>校园生活</h4>
     <br/>
 
     <div>
-        <img src="/webroot/img/fr3.png" width="100%">
+        <?= $this->Html->image('fr3.png', ['width' => '100%']) ?>
     </div>
     <h4>课堂剪影</h4>
     <br/>

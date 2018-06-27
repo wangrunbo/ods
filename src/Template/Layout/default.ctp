@@ -44,7 +44,6 @@ $this->setScriptVars('validation_error_template', $this->element('validation', [
                 <nav>
                     <ul class="nav nav-pills pull-right">
                         <li role="presentation"><a href="http://liuxue.sjtu.edu.cn/zty2.aspx?ID=21#" target="_blank">法国留学专题</a></li>
-                        <li role="presentation"><a href="http://liuxue.sjtu.edu.cn/#" target="_blank">国际教育官网</a></li>
                         <li role="presentation"><a href="<?= $this->Url->build(['controller' => 'Apply', 'action' => 'index', '#' => 'signin']) ?>">咨询预约</a></li>
                     </ul>
                 </nav>

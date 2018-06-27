@@ -12,3 +12,21 @@ msgstr "请输入联系电话！"
 
 msgid "Tel format invalid!"
 msgstr "电话号码格式错误！"
+
+msgid "Please enter your id number!"
+msgstr "请输入身份证号！"
+
+msgid "Please enter the correct id number!"
+msgstr "请输入正确的身份证号！"
+
+msgid "Please enter your achievement!"
+msgstr "请输入高考成绩！"
+
+msgid "Please enter the correct achievement!"
+msgstr "请输入正确的高考成绩！"
+
+msgid "Please enter your English achievement!"
+msgstr "请输入高考英语成绩！"
+
+msgid "Please enter the correct English achievement!"
+msgstr "请输入正确的高考英语成绩！"

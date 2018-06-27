@@ -52,6 +52,9 @@ $search = $this->request->getQuery('tel');
                         <th class="count"></th>
                         <th class="name">姓名</th>
                         <th class="tel">联系电话</th>
+                        <th class="tel">身份证号</th>
+                        <th class="tel">高考成绩</th>
+                        <th class="tel">高考英语成绩</th>
                         <th class="created">报名时间</th>
                         <th class="note">备注</th>
                     </tr>
@@ -62,6 +65,9 @@ $search = $this->request->getQuery('tel');
                             <td><?= ++$count; ?></td>
                             <td><?= h($applicant->name); ?></td>
                             <td><?= h($applicant->tel); ?></td>
+                            <td><?= h($applicant->id_num); ?></td>
+                            <td><?= h($applicant->achievement); ?></td>
+                            <td><?= h($applicant->en_achievement); ?></td>
                             <td><?= h($applicant->created->format(DATE_FORMAT['DATETIME'])); ?></td>
                             <td><?= $this->element('text_editor', ['name' => 'note', 'text' => $applicant->note, 'url' => ['controller' => 'Admin', 'action' => 'edit', $applicant->id]]) ?></td>
                         </tr>
