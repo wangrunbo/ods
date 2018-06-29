@@ -15,8 +15,8 @@ class AddIdNumAndAchievementAndEnAchievementFieldToApplicantsTable extends Abstr
         $applicants = $this->table('applicants');
         $applicants
             ->addColumn('id_num', 'string', ['limit' => 18, 'null' => true, 'comment' => '身份证号', 'after' => 'tel'])
-            ->addColumn('achievement', 'float', ['precision' => 3, 'scale' => 1, 'null' => true, 'comment' => '高考成绩', 'after' => 'id_num'])
-            ->addColumn('en_achievement', 'float', ['precision' => 3, 'scale' => 1, 'null' => true, 'comment' => '高考英语成绩', 'after' => 'achievement'])
+            ->addColumn('achievement', 'float', ['precision' => 4, 'scale' => 1, 'null' => true, 'comment' => '高考成绩', 'after' => 'id_num'])
+            ->addColumn('en_achievement', 'float', ['precision' => 4, 'scale' => 1, 'null' => true, 'comment' => '高考英语成绩', 'after' => 'achievement'])
 
             ->save();
 
@@ -26,8 +26,8 @@ class AddIdNumAndAchievementAndEnAchievementFieldToApplicantsTable extends Abstr
 
         $applicants
             ->changeColumn('id_num', 'string', ['limit' => 18, 'null' => false, 'comment' => '身份证号'])
-            ->changeColumn('achievement', 'float', ['precision' => 3, 'scale' => 1, 'null' => false, 'comment' => '高考成绩'])
-            ->changeColumn('en_achievement', 'float', ['precision' => 3, 'scale' => 1, 'null' => false, 'comment' => '高考英语成绩'])
+            ->changeColumn('achievement', 'float', ['precision' => 4, 'scale' => 1, 'null' => false, 'comment' => '高考成绩'])
+            ->changeColumn('en_achievement', 'float', ['precision' => 4, 'scale' => 1, 'null' => false, 'comment' => '高考英语成绩'])
 
             ->save();
     }

@@ -117,6 +117,18 @@ table tr:nth-child(2n) {
     width: 15%;
 }
 
+#list-apply .id_num {
+    width: 30%;
+}
+
+#list-apply .achievement {
+    width: 11%;
+}
+
+#list-apply .en_achievement {
+    width: 11%;
+}
+
 #list-apply .created {
     width: 15%;
 }

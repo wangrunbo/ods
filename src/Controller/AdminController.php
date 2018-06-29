@@ -42,7 +42,7 @@ class AdminController extends AppController
             COOKIE_ADMIN_AUTH,
             $this->request->getCookie(COOKIE_ADMIN_AUTH),
             Time::now()->addHour(ADMIN_AUTH_HOLD_HOUR),
-            '/'.env('ADMIN_PAGE_URL', ADMIN_PAGE_URL)
+            $this->request->getAttribute('base').'/'.env('ADMIN_PAGE_URL', ADMIN_PAGE_URL)
         );
     }
 

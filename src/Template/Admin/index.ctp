@@ -52,9 +52,9 @@ $search = $this->request->getQuery('tel');
                         <th class="count"></th>
                         <th class="name">姓名</th>
                         <th class="tel">联系电话</th>
-                        <th class="tel">身份证号</th>
-                        <th class="tel">高考成绩</th>
-                        <th class="tel">高考英语成绩</th>
+                        <th class="id_num">身份证号</th>
+                        <th class="achievement">高考成绩</th>
+                        <th class="en_achievement">高考英语成绩</th>
                         <th class="created">报名时间</th>
                         <th class="note">备注</th>
                     </tr>
