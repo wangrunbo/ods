@@ -127,7 +127,6 @@ class ApplicantsTable extends Table
         ;
 
         $validator
-            ->numeric('achievement')
             ->requirePresence('achievement', 'create', __d($this->getLocale(), 'Please enter your achievement!'))
             ->notEmpty('achievement', __d($this->getLocale(), 'Please enter your achievement!'))
             ->add('achievement', 'format', [
@@ -139,7 +138,6 @@ class ApplicantsTable extends Table
         ;
 
         $validator
-            ->numeric('en_achievement')
             ->requirePresence('en_achievement', 'create', __d($this->getLocale(), 'Please enter your English achievement!'))
             ->notEmpty('en_achievement', __d($this->getLocale(), 'Please enter your English achievement!'))
             ->add('en_achievement', 'format', [

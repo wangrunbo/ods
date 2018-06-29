@@ -63,7 +63,7 @@ class AppView extends View
             $var = "let {$name};";
         } else {
             if ($options['is_html']) {
-                $value = str_replace(PHP_EOL, '', $value);
+                $value = preg_replace('/'.PHP_EOL.'|(\r\n)|\n/', '', $value);
             }
 
             if ($options['is_string'] || is_string($value)) {
